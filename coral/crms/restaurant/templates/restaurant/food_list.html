@@ -1,0 +1,39 @@
+{% extends 'restaurant/base.html' %} {% block content %}
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<nav class="navbar navbar-dark bg-grey">
+    <!-- Navbar content -->
+    <h3 class="navbar-brand ml-4 p-lg-5">FOOD LISTS</h3>
+</nav>
+
+
+<div class="row">
+    {% for food in foods %}
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="bg-image card shadow-1-strong">
+
+                <li class="list-group-item">
+                    <img src="{{ food.image.url }}" alt="Girl in a jacket" width="400" height="400" class="rounded" style="width: 100%; float: left; margin: 10px;">
+                    <h4 class="list-group-item-heading">{{ food.name }}<span class="badge pull-right">Ghc {{ food.price }}</span></h4>
+                    <p class="list-group-item-text">{{ food.description }}</p>
+                </li>
+                <a href="{% url 'food_order' food.pk %}" class="btn btn-primary">Order</a>
+
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+{% endblock content %}

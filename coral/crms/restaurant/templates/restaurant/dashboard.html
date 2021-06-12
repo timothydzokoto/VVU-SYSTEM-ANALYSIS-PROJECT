@@ -1,0 +1,143 @@
+{% extends 'restaurant/base.html' %} {% block content %}
+
+<div class="container">
+    <br><br><br><br>
+    <section class="bg-about bg-section" id="about">
+        <h2>DASHBOARD</h2>
+    </section>
+
+
+    <div class="row justify-content-center mt-3">
+        <h4 class="text-center pt-2">Food Order</h4>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+
+
+        <div class="col-md-12 mt-5">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">Food</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Is Paid?</th>
+                        <th scope="col">Delivered?</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <th scope="row">{{ order.pk }}</th>
+                        <td>{{ order.food }}</td>
+                        <td>{{ order.price }}</td>
+                        <td>
+                            {% if order.is_paid %}
+                            <i style="color: green;" class="fas fa-check">Yes</i> {% else %}
+                            <i style="color: red;" class="fas fa-times">No</i> {% endif %}
+
+                        </td>
+
+                        <td>
+                            {% if order.is_delivered %}
+                            <i style="color: green;" class="fas fa-check">Yes</i> {% else %}
+                            <i style="color: red;" class="fas fa-times">No</i> {% endif %}
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br><br>
+
+        <div class="row justify-content-center mt-3">
+            <h4 class="text-center pt-2">Reservations Booked</h4>
+
+        </div>
+        <div class="col-md-12 mt-5">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Reservation ID</th>
+                        <th scope="col">Tye</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Is Paid?</th>
+                        <th scope="col">Approved?</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for reservation in reservations %}
+                    <tr>
+                        <th scope="row">{{ reservation.pk }}</th>
+                        <td>{{ reservation.type }}</td>
+                        <td>{{ reservation.price }}</td>
+                        <td>
+                            {% if reservation.is_paid %}
+                            <i style="color: green;" class="fas fa-check">Yes</i> {% else %}
+                            <i style="color: red;" class="fas fa-times">No</i> {% endif %}
+
+                        </td>
+
+                        <td>
+                            {% if reservation.is_approved %}
+                            <i style="color: green;" class="fas fa-check">Yes</i> {% else %}
+                            <i style="color: red;" class="fas fa-times">No</i> {% endif %}
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        <br><br>
+        <div class="row justify-content-center mt-3">
+            <h4 class="text-center pt-2">Recreations Booked</h4>
+
+        </div>
+
+        <div class="col-md-12 mt-5">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Reservation ID</th>
+                        <th scope="col">Tye</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Is Paid?</th>
+                        <th scope="col">Approved?</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for recreation in recreations %}
+                    <tr>
+                        <th scope="row">{{ recreation.pk }}</th>
+                        <td>{{ recreation.activity }}</td>
+                        <td>{{ recreation.price }}</td>
+                        <td>
+                            {% if recreation.is_paid %}
+                            <i style="color: green;" class="fas fa-check">Yes</i> {% else %}
+                            <i style="color: red;" class="fas fa-times">No</i> {% endif %}
+
+                        </td>
+
+                        <td>
+                            {% if recreation.is_approved %}
+                            <i style="color: green;" class="fas fa-check">Yes</i> {% else %}
+                            <i style="color: red;" class="fas fa-times">No</i> {% endif %}
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

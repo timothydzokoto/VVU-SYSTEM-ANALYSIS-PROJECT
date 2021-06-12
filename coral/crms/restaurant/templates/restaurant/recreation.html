@@ -1,0 +1,22 @@
+{% extends 'restaurant/base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<br><br><br><br><br>
+<div class="jumbotron">
+    <div class="container-fluid">
+        <div class="body-content-inner">
+            <div class="container mb-5">
+                <div class="row justify-content-center mt-1">
+                    <div class="col-md-5 col-sm-12 text-center">
+                        <h1>Recreational Activity</h1>
+                        <form action="" method="POST">
+                            {% csrf_token %} {{ form|crispy }}
+
+                            <button class="btn btn-dark mt-5" type="submit">Book Recreation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
