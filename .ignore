@@ -241,4 +241,10 @@ Thumbs.db
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/python,django,visualstudiocode
+
+### SSH ###
+**/.ssh/id_*
+**/.ssh/*_id_*
+**/.ssh/known_hosts
+
+# End of https://www.toptal.com/developers/gitignore/api/ssh
